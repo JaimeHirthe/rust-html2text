@@ -1,0 +1,41 @@
+[package]
+name = "html2text"
+version = "0.6.0"
+authors = ["Chris Emerson <github@mail.nosreme.org>"]
+description = "Render HTML as plain text."
+repository = "https://github.com/jugglerchris/rust-html2text/"
+readme = "README.md"
+documentation = "https://docs.rs/html2text/"
+edition = "2018"
+rust-version = "1.60"
+
+keywords = ["html", "text"]
+license = "MIT"
+
+[dependencies]
+html5ever = "0.26.0"
+markup5ever = "0.11.0"
+tendril = "0.4"
+xml5ever = "0.17"
+unicode-width = "0.1.5"
+backtrace = { version = "0.3", optional=true }
+
+[features]
+html_trace = []
+html_trace_bt = ["backtrace"]
+default = []
+ansi_colours = []
+
+[[example]]
+name = "html2term"
+path = "examples/html2term.rs"
+
+[[example]]
+name = "html2text"
+path = "examples/html2text.rs"
+
+[dev-dependencies]
+argparse = "0.2.2"
+
+[target.'cfg(unix)'.dev-dependencies]
+termion = "1.5"
